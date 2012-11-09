@@ -16,12 +16,18 @@ public final class R {
         public static final int pricetag=0x7f020002;
     }
     public static final class id {
-        public static final int gridview=0x7f050002;
-        public static final int widget33=0x7f050000;
-        public static final int widget34=0x7f050001;
+        public static final int clipboard_png=0x7f050001;
+        public static final int gridview=0x7f050005;
+        public static final int icon_text=0x7f050002;
+        public static final int pricetag=0x7f050000;
+        public static final int pricetag_png=0x7f050006;
+        public static final int widget33=0x7f050003;
+        public static final int widget34=0x7f050004;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
+        public static final int clipboard=0x7f030000;
+        public static final int main=0x7f030001;
+        public static final int pricetag=0x7f030002;
     }
     public static final class string {
         public static final int app_name=0x7f040001;
