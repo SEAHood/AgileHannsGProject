@@ -1,6 +1,6 @@
-Function 1 : How much shares that worth in total 
+Function 1 : How much set of shares that worth in total 
 
-Unit 1 : Calculate how worth of owned shares
+Unit 1 : Calculate How much set of shares that worth in total 
 
 * Input           : 
 	Available number of shares in particular brands 
@@ -85,8 +85,8 @@ Unit 3 : Error checking
 
 	
 * Boundary value : 
-	invalid values : 
-	valid values : 
+	invalid values : Valid data ; working internet connection
+	valid values : invalid data ; no internet connection
 
 * JUnit proposal :
 		@Test
@@ -101,14 +101,26 @@ Unit 3 : Error checking
 		ProfitErrorTest()
 		
 
+Function 2 - Estimate how much portfolio is worth in total
+
 Unit 4 : Compare from previous friday
 
-* Input    : 
+* Input    : The total worth value from current Friday 
+	     The total worth value from previous Friday 
 
-* Expected : 
+* Expected : The total worth value from current Friday 
+	     The total worth value from previous Friday <present as table>
+	     
+	     Calculation (distraction)
 
 * Boundary value : 
-	invalid values : 
-	valid values : 
+	invalid values : total worth value < 0 
+	valid values : total worth value >= 0 
 
 * JUnit proposal :
+	     
+		@Test 
+	     	public void totalWorthTest();	
+		@Test
+		public void WorthCalculationTest();
+	
