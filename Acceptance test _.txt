@@ -1,0 +1,114 @@
+Function 1 : How much shares that worth in total 
+
+Unit 1 : Calculate how worth of owned shares
+
+* Input           : 
+	Available number of shares in particular brands 
+	Profit per single type of share 
+
+* Expected output :
+ Value of worth of shares =  Profit_share_type_1 + Profit_share_type_2
+			   + Profit_share_type_3 + ... 
+
+ Profit_share_type_x = number_of_share_x * profit_per_single_share_x
+	
+ 
+* Boundary value : 
+	invalid values : <  0.00
+	valid values   : >= 0.00
+
+* JUnit proposal : 
+	multiply (number of shares,profit per single share)
+	addition (profit_share_type ... ) 
+
+* Error Guessing :
+	- The calculation yield a wrong value when prices is out up date 
+	- Number of shares < 0 
+	- Profit_per_single_share < 0 
+
+
+Unit 2 : Update prices 
+
+* Input    : Live Index 
+   	     Live Share
+
+* Expected : Index 
+      	     Value (Buy and Sell) 
+	     Point of decrement or increment 
+		
+	      e.g decrement :  -0.01 ; -0.1
+		  increment : +0.3     	        (%)
+	  ->  thus, updated_value = current_value + decrement_point/increment
+			
+
+	   <Present as the table>
+
+* Boundary value : 
+	invalid values : index = null 
+			 Buy <= 0 || Sell <= 0
+						 			 
+	valid values : index specified (e.g Groupon ; UK100 ; Oil)
+		       value > 0     (e.g: Buy: 2.80 GBP)
+
+
+* JUnit proposal :
+
+	@Test
+	boolean indexTest()
+	@Test
+	boolean valueTest()
+	@BeforeClass
+	void connect()
+
+* Error Guessing : 
+	- Stopped internet connection on time when needing to update prices, thus missing the update function
+
+	- No Internet connection 
+	
+	- Index is null/ no longer existing 
+
+	- 
+
+Unit 3 : Error checking 
+	
+* Input    : Internet connection(wifi, 3g, ..)
+	     Data (index, value, profit, available deposit)
+
+* Expected : No messages for no errors (just present the interface with all of valid data)
+	     There is an error in : 
+		No internet connection - Show a dialog with the message : "No internet connection" 			
+		Data is invalid in : 
+		   index is Null : (This index is no longer existing)
+		   value <= 0    : (this value is out up date)
+		   deposit is not enough : (Sorry you do not have enough money)
+		   profit is invalid : (the profit is out up date)
+
+	
+* Boundary value : 
+	invalid values : 
+	valid values : 
+
+* JUnit proposal :
+		@Test
+		connectionTest()
+		@Test
+		nullIndexErrorTest()
+		@Test
+		valueErrorTest()
+		@Test
+		depositErrorTest()
+		@Test
+		ProfitErrorTest()
+		
+
+Unit 4 : Compare from previous friday
+
+* Input    : 
+
+* Expected : 
+
+* Boundary value : 
+	invalid values : 
+	valid values : 
+
+* JUnit proposal :
