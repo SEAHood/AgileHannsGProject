@@ -2,6 +2,7 @@ package com.stocks.hannsg;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,27 @@ public class StocksInformationActivity extends Activity {
 
         gridview.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(StocksInformationActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(StocksInformationActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+            	
+            	if (position == 0) {
+            		
+            		/*********************************************************************************
+            		 *CHANGE THIS CODE FROM "NEXTACTIVITY" TO CALL THE PORTFOLIO TOTAL VALUE ACTIVITY*
+            		 *********************************************************************************/
+
+            		/*Intent myIntent = new Intent(StocksInformationActivity.this, NextActivity.class);
+            		StocksInformationActivity.this.startActivity(myIntent);*/
+            		
+            	} else if (position == 1) {
+            		
+            		/****************************************************************************
+            		 *CHANGE THIS CODE FROM "NEXTACTIVITY" TO CALL THE STOCKS BREAKDOWN ACTIVITY*
+            		 ****************************************************************************/
+
+            		/*Intent myIntent = new Intent(StocksInformationActivity.this, NextActivity.class);
+            		StocksInformationActivity.this.startActivity(myIntent);*/
+            		
+            	}
             }
         });
     }
@@ -51,9 +72,9 @@ public class StocksInformationActivity extends Activity {
         // create a new ImageView for each item referenced by the Adapter
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView;
-            if (convertView == null) {  // if it's not recycled, initialize some attributes
+            if (convertView == null) {  // if it's not recycled, initialise some attributes
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(180, 180));
+                imageView.setLayoutParams(new GridView.LayoutParams(230, 230));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setPadding(8, 20, 8, 8);
             } else {
@@ -66,7 +87,7 @@ public class StocksInformationActivity extends Activity {
 
         // references to our images
         private Integer[] mThumbIds = {
-        		R.drawable.clipboard, R.drawable.pricetag
+        		R.drawable.dollar, R.drawable.chart
         };
     }
 }
