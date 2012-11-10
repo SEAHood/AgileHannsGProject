@@ -7,9 +7,7 @@ Unit 1 : Calculate how much set of shares that worth in total
 	Profit per single type of share 
 
 * Expected output :
- Value of worth of shares =  Profit_share_type_1 + Profit_share_type_2
-			   + Profit_share_type_3 + ... 
-
+ 
  Profit_share_type_x = number_of_share_x * profit_per_single_share_x
 	
  
@@ -76,17 +74,17 @@ Unit 3 : Error checking
 	
 * Input    : Internet connection(wifi, 3g, ..)
 	     Data (index, value, profit, available deposit)
-
+	     Feed (e.g )
 * Expected : No messages for no errors (just present the interface with all of valid data)
 	     There is an error in : 
-		No internet connection - Show a dialog with the message : "No internet connection" 			
-		Data is invalid in : 
+		 internet connection - Show a dialog with the message : "No available internet connection" 			
+		 Data : 
 		   index is Null : (This index is no longer existing)
-		   value <= 0    : (this value is out up date)
+		   value <= 0    : (Bad data)
 		   deposit is not enough : (Sorry you do not have enough money)
 		   profit is invalid : (the profit is out up date)
 
-	
+		 Feed : (No data available)
 * Boundary value : 
 	invalid values : Valid data ; working internet connection
 	valid values : invalid data ; no internet connection
@@ -106,6 +104,58 @@ Unit 3 : Error checking
 
 Function 2 - Estimate how much portfolio is worth in total
 
+Unit 1 : Display total of all stocks 
+* Input    : all values numbers of all stocks  
+* Expected : all values numbers of all stocks (with comma if it's >= 1000) 
+	     
+* Boundary value : 
+	invalid values : any values numbers of stocks< 0 
+	valid values : any values numbers of stocks >= 0 
+
+* JUnit proposal :
+		@Test
+		portfolioWorthTest();
+				
+
+Unit 2 : Total must be in pounds 
+* Input    : all worth total numbers 
+* Expected : all worth total numbers (in pounds - with current trade ratio according to yahoo finance )
+	     
+* Boundary value : 
+	invalid values : total values < 0 
+	valid values : 	 total values >= 0 
+
+* JUnit proposal :
+		@Test
+		totalInPoundsWorthTest();
+
+
+Unit 3 : Error checking 
+* Input    : Internet connection(wifi, 3g, ..)
+	     Data (index, value, profit, available deposit)
+	     Feed
+
+* Expected : No messages for no errors (just present the interface with all of valid data)
+	     There is an error in : 
+		 internet connection - Show a dialog with the message : "No available internet connection" 			
+		 Data : 
+		   index is Null : (This index is no longer existing)
+		   value <= 0    : (Bad data)
+
+		 Feed : (No data available for .. )
+	     
+* Boundary value : 
+	invalid values : Valid data ; working internet connection
+	valid values : invalid data ; no internet connection
+
+* JUnit proposal :
+		@Test
+		connectionTest()
+		@Test
+		nullIndexErrorTest()
+		@Test
+		valueErrorTest()
+	
 Unit 4 : Compare from previous friday
 
 * Input    : The total worth value from current Friday 
