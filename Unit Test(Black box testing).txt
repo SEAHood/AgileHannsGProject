@@ -1,4 +1,4 @@
-Function 1 : How much set of shares that worth in total 
+Function : How much set of shares that worth in total 
 
 Unit 1 : Calculate how much set of shares that worth in total 
 
@@ -16,8 +16,10 @@ Unit 1 : Calculate how much set of shares that worth in total
 	valid values   : >= 0.00
 
 * JUnit proposal : 
-	multiply (number of shares,profit per single share)
-	addition (profit_share_type ... ) 
+	@Test
+	profitPerShareTest (number of shares,profit per single share)
+	@Test	
+	totalProfit (profit_share_type ... ) 
 
 * Error Guessing :
 	- The calculation yield a wrong value when prices is out up date 
@@ -30,13 +32,14 @@ Unit 2 : Update prices
 * Input    : Live Index 
    	     Live Share
 
-* Expected : Index 
-      	     Value (Buy and Sell) 
+* Expected : Index not null
+      	     Value (Buy and Sell) >= 0 
 	     Point of decrement or increment 
 		
 	      e.g decrement :  -0.01 ; -0.1
 		  increment : +0.3     	        (%)
-	  ->  thus, updated_value = current_value + decrement_point/increment
+	  ->  thus,
+updated_value= current_value + (current_value * decrement_point/increment)
 			
 
 	   <Present as the table>
@@ -52,15 +55,14 @@ Unit 2 : Update prices
 * JUnit proposal :
 
 	@Test
-	boolean indexTest()
+	indexTest()
 	@Test
-	boolean valueTest()
+	valueTest()
 	@BeforeClass
 	void connect()
 	@Test timeout = 15 minutes
 	update()
-	@BeforeClass
-	void connect()
+	
 * Error Guessing : 
 	- Stopped internet connection on time when needing to update prices, thus missing the update function
 
@@ -91,15 +93,7 @@ Unit 3 : Error checking
 
 * JUnit proposal :
 		@Test
-		connectionTest()
-		@Test
-		nullIndexErrorTest()
-		@Test
-		valueErrorTest()
-		@Test
-		depositErrorTest()
-		@Test
-		ProfitErrorTest()
+		errorCheckingTest();
 		
 
 Function 2 - Estimate how much portfolio is worth in total
