@@ -11,16 +11,18 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int clipboard=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int pricetag=0x7f020002;
+        public static final int chart=0x7f020000;
+        public static final int dollar=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int clipboard_png=0x7f050001;
+        public static final int GridItem=0x7f050000;
+        public static final int grid_item_image=0x7f050001;
+        public static final int grid_item_text=0x7f050002;
         public static final int gridview=0x7f050005;
-        public static final int icon_text=0x7f050002;
-        public static final int pricetag=0x7f050000;
-        public static final int pricetag_png=0x7f050006;
+        public static final int pricetag=0x7f050006;
+        public static final int pricetag_image=0x7f050007;
+        public static final int pricetag_text=0x7f050008;
         public static final int widget33=0x7f050003;
         public static final int widget34=0x7f050004;
     }
