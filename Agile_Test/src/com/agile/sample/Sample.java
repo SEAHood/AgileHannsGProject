@@ -15,6 +15,11 @@ public class Sample {
 	public static String invalidDepositMessage;
 	public static String noProfitInfoMessage;
 	
+	public static ArrayList<StockList> stockList;
+	public static double usdRatio;
+	private static double eurosRatio;
+	public static Object previousPortfolioCapture;
+	
 	public static double profitPerShare(int amount, double profitPerEach) {
 		double result = amount * profitPerEach;
 		sharesList.add(result);
@@ -29,6 +34,17 @@ public class Sample {
 		}
 		return total ; 
 		
+	}
+
+	public static double dolarsToPounds(double price) {
+		// TODO Auto-generated method stub
+		 
+		return price * usdRatio;
+	}
+
+	public static double eurosToPounds(double price) {
+		// TODO Auto-generated method stub
+		return price * eurosRatio;
 	}
 	
 	 

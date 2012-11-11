@@ -99,11 +99,11 @@ Unit 3 : Error checking
 Function 2 - Estimate how much portfolio is worth in total
 
 Unit 1 : Display total of all stocks 
-* Input    : all values numbers of all stocks  
+* Input    : all values numbers of all stocks (from internet ) 
 * Expected : all values numbers of all stocks (with comma if it's >= 1000) 
 	     
 * Boundary value : 
-	invalid values : any values numbers of stocks< 0 
+	invalid values : any values numbers of stocks< 0 ; any indexes which are null.
 	valid values : any values numbers of stocks >= 0 
 
 * JUnit proposal :
@@ -157,8 +157,6 @@ Unit 4 : Compare from previous friday
 
 * Expected : The total worth value from current Friday 
 	     The total worth value from previous Friday <present as table>
-	     
-	     Calculation (distraction)
 
 * Boundary value : 
 	invalid values : total worth value < 0 
@@ -166,8 +164,7 @@ Unit 4 : Compare from previous friday
 
 * JUnit proposal :
 	     
-		@Test 
-	     	public void totalWorthTest();	
 		@Test
-		public void WorthCalculationTest();
-	
+		portfolioWorthTest();
+		@Test
+		capturePortfolioTest();
