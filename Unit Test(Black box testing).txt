@@ -168,3 +168,5 @@ Unit 4 : Compare from previous friday
 		portfolioWorthTest();
 		@Test
 		capturePortfolioTest();
+
+Function : Design interface 
