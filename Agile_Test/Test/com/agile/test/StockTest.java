@@ -6,8 +6,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import com.agile.sample.Sample;
 
-public class SetOfShareTest {
-// Unit 1 : 
+public class StockTest {
+	// Function 1 : 
+	
+	// Unit 1 : 
 	@Test
 	public void profitPerShareTest() {
 		double profitPerSetOfShareX = Sample.profitPerShare(2, 2.25);
@@ -55,4 +57,6 @@ public class SetOfShareTest {
 		assertNotNull(Sample.noProfitInfoMessage);
 		
 	}
+	
+	
 }
