@@ -16,93 +16,130 @@
         android:textColor="#C0C0C0"
         android:textSize="14dp"
         android:textStyle="italic" />
-
-    <ProgressBar
-        android:id="@+id/ProgressBar01"
-        style="?android:attr/progressBarStyleHorizontal"
+    
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="BP"
+            android:textColor="#000000"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£0.00"
+            android:textColor="#00ff00"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </LinearLayout>
+    
+
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#efefef" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="HSBA"
+            android:textColor="#000000"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£0.00"
+            android:textColor="#00ff00"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:paddingRight="5dp"
-            android:text="GOOG"
+            android:text="EXPN"
             android:textColor="#000000"
-            android:textSize="24dp"
+            android:textSize="32dp"
             android:textStyle="bold"
             android:typeface="serif" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="10dp"
-            android:text="Google Corporation"
-            android:textSize="14dp"
-            android:textStyle="italic"
+            android:text="£0.00"
+            android:textColor="#00ff00"
+            android:textSize="32dp"
+            android:textStyle="bold"
             android:typeface="serif" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="hi everyone, love fraser" />
-
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleHorizontal"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="#efefef" >
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="MKS"
+            android:textColor="#000000"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="£0.00"
+            android:textColor="#00ff00"
+            android:textSize="32dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:paddingRight="5dp"
-            android:text="TEST"
+            android:text="SN"
             android:textColor="#000000"
-            android:textSize="24dp"
+            android:textSize="32dp"
             android:textStyle="bold"
             android:typeface="serif" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:paddingLeft="5dp"
-            android:paddingRight="10dp"
-            android:text="Testicles"
-            android:textSize="14dp"
-            android:textStyle="italic"
+            android:text="£0.00"
+            android:textColor="#00ff00"
+            android:textSize="32dp"
+            android:textStyle="bold"
             android:typeface="serif" />
     </LinearLayout>
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="hi everyone, fraser loves these" />
-
-    <ProgressBar
-        android:id="@+id/ProgressBar02"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>
