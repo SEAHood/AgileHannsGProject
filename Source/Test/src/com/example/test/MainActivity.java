@@ -120,7 +120,12 @@ public class MainActivity extends Activity {
     					break;
     			}
     			
-    			text.append(" - Total value: £" + stockWorth / 100);
+    			// convert to £
+    			stockWorth /= 100;
+    			
+    			text.append(" - Total value: £" + addCommas(stockWorth));
+    			
+    			// add value of current stock to array of totals
     			stocks[line_counter] = csv_read[1];
     			    			
     			text.append('\n');
@@ -133,17 +138,30 @@ public class MainActivity extends Activity {
     		//Convert to £
     		totalWorth /= 100;
     		
+    		// sam's expression which i don't understand the need for =]
+    		// Math.round(totalWorth*100.0)/100.0)
+    		
     		text.append('\n');
-    		text.append("Your total value is: £" + Math.round(totalWorth*100.0)/100.0);
+    		text.append("Your total value is: £" + addCommas(totalWorth));
     	}
     	catch (IOException ex)
     	{
     		System.out.println("Error in showShares method.");
     	}
     	
-    	
     	output.setText(text);
     }
+    
+    
+    private String addCommas(float val)
+    {
+    	String result = "";
+    	
+    	result = String.format("%,.2f", val);
+        	
+    	return result;
+    }
+    
     
     private float calculateTotalWorth(String[] stocks)
     {
