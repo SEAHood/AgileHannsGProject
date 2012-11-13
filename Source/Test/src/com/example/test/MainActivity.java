@@ -15,6 +15,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+	
+	public MainActivity() {
+		
+	}
 
 	// declare the dialog as a member field of your activity
 	ProgressDialog mProgressDialog;
@@ -55,7 +59,7 @@ public class MainActivity extends Activity {
     
     
     
-    private void getShares()
+    public void getShares()
     {
     	// execute this when the downloader must be fired
     	DownloadFile downloadFile = new DownloadFile(this);
@@ -69,7 +73,8 @@ public class MainActivity extends Activity {
     }
     
     
-    private void showShares()
+    //private void showShares()
+    public String[] showShares()
     {
     	StringBuilder text = new StringBuilder();
     	TextView output = new TextView(this);
@@ -87,17 +92,20 @@ public class MainActivity extends Activity {
     		
     		String line;
     		String[] stocks = new String[5];
+    		String[] euanStocks = new String[6];
+    		
     		int line_counter = 0;
     		
     		while ((line = br.readLine()) != null)
     		{
+    			
     			//Split up line
     			//[0] = Stock Code
     			//[1] = Current Stock Value
     			String delims = "[,]+";
     			String[] csv_read = line.split(delims);
     			
-    			text.append(csv_read[0]);
+    			//text.append(csv_read[0]);
     			float stockWorth = 0.0f;
     			switch(line_counter)
     			{
@@ -123,12 +131,13 @@ public class MainActivity extends Activity {
     			// convert to £
     			stockWorth /= 100;
     			
-    			text.append(" - Total value: £" + addCommas(stockWorth));
+    			//text.append(" - Total value: £" + addCommas(stockWorth));
     			
     			// add value of current stock to array of totals
+    			euanStocks[line_counter] = addCommas(stockWorth);
     			stocks[line_counter] = csv_read[1];
     			    			
-    			text.append('\n');
+    			//text.append('\n');
     			line_counter++;
     		}
     		
@@ -138,18 +147,23 @@ public class MainActivity extends Activity {
     		//Convert to £
     		totalWorth /= 100;
     		
+    		euanStocks[5] = addCommas(totalWorth);
+    		
     		// sam's expression which i don't understand the need for =]
     		// Math.round(totalWorth*100.0)/100.0)
     		
-    		text.append('\n');
-    		text.append("Your total value is: £" + addCommas(totalWorth));
+    		//text.append('\n');
+    		//text.append("Your total value is: £" + addCommas(totalWorth));
+    		
+    		return euanStocks;
     	}
     	catch (IOException ex)
     	{
     		System.out.println("Error in showShares method.");
+    		return null;
     	}
     	
-    	output.setText(text);
+    	//output.setText(text);
     }
     
     
