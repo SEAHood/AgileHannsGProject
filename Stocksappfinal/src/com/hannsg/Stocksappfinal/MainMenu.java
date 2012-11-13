@@ -1,4 +1,4 @@
-package com.stocks.hannsg;
+package com.hannsg.Stocksappfinal;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class StocksInformationActivity extends Activity {
+public class MainMenu extends Activity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,8 +33,8 @@ public class StocksInformationActivity extends Activity {
             		 *CHANGE THIS CODE FROM "NEXTACTIVITY" TO CALL THE PORTFOLIO TOTAL VALUE ACTIVITY*
             		 *********************************************************************************/
 
-            		/*Intent myIntent = new Intent(StocksInformationActivity.this, com.example.my.first.app.MainActivity.class);
-            		StocksInformationActivity.this.startActivity(myIntent);*/
+            		Intent myIntent = new Intent(MainMenu.this, com.hannsg.Stocksappfinal.Portfolio.class);
+            		MainMenu.this.startActivity(myIntent);
             		
             	} else if (position == 1) {
             		
@@ -42,8 +42,8 @@ public class StocksInformationActivity extends Activity {
             		 *CHANGE THIS CODE FROM "NEXTACTIVITY" TO CALL THE STOCKS BREAKDOWN ACTIVITY*
             		 ****************************************************************************/
 
-            		/*Intent myIntent = new Intent(StocksInformationActivity.this, NextActivity.class);
-            		StocksInformationActivity.this.startActivity(myIntent);*/
+            		Intent myIntent = new Intent(MainMenu.this, com.hannsg.Stocksappfinal.StocksBreakdown.class);
+            		MainMenu.this.startActivity(myIntent);
             		
             	}
             }

@@ -1,4 +1,4 @@
-package com.example.test;
+package com.hannsg.Stocksappfinal;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -16,9 +16,9 @@ import android.os.Environment;
 //that way, you can easily modify the UI thread from here
 public class DownloadFile extends AsyncTask<String, Integer, String> {
 	
-	public MainActivity activity;
+	public StockGatherer activity;
 	
-	public DownloadFile(MainActivity myMain) {
+	public DownloadFile(StockGatherer myMain) {
 		// TODO Auto-generated constructor stub
 		activity = myMain;
 	}

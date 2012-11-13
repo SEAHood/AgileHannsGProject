@@ -1,8 +1,13 @@
-package com.example.test;
+package com.hannsg.Stocksappfinal;
 
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+
+import com.hannsg.Stocksappfinal.R;
+import com.hannsg.Stocksappfinal.R.id;
+import com.hannsg.Stocksappfinal.R.layout;
+import com.hannsg.Stocksappfinal.R.menu;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,9 +19,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class StockGatherer extends Activity {
 	
-	public MainActivity() {
+	public StockGatherer() {
 		
 	}
 
@@ -35,7 +40,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
      // instantiate it within the onCreate method
-    	mProgressDialog = new ProgressDialog(MainActivity.this);
+    	mProgressDialog = new ProgressDialog(StockGatherer.this);
     	mProgressDialog.setMessage("A message");
     	mProgressDialog.setIndeterminate(false);
     	mProgressDialog.setMax(100);
@@ -73,8 +78,8 @@ public class MainActivity extends Activity {
     }
     
     
-    //private void showShares()
-    public String[] showShares()
+    private void showShares()
+    //public String[] showShares()
     {
     	StringBuilder text = new StringBuilder();
     	TextView output = new TextView(this);
@@ -149,30 +154,33 @@ public class MainActivity extends Activity {
     		
     		euanStocks[5] = addCommas(totalWorth);
     		
-    		// sam's expression which i don't understand the need for =]
-    		// Math.round(totalWorth*100.0)/100.0)
-    		
     		//text.append('\n');
     		//text.append("Your total value is: £" + addCommas(totalWorth));
     		
-    		return euanStocks;
+    		text.append("BP: £"+euanStocks[0]+'\n'+"HSBA: £"+euanStocks[1]+'\n'+"EXPN: £"+euanStocks[2]+'\n'+"MKS: £"+euanStocks[3]+'\n'+"SN: £"+euanStocks[4]+'\n'+"TOTAL: £"+euanStocks[5]);
+    		
+    		//return euanStocks;
     	}
     	catch (IOException ex)
     	{
     		System.out.println("Error in showShares method.");
-    		return null;
+    		//return null;
     	}
     	
-    	//output.setText(text);
+    	output.setText(text);
     }
     
     
     private String addCommas(float val)
     {
+    	/*
+    	 * Adds commas between sets of 3 digits in
+    	 * values greater than £1000
+    	 * returns formatted value as a string.
+    	 * (horrible hack, but whatever)
+    	 */
     	String result = "";
-    	
     	result = String.format("%,.2f", val);
-        	
     	return result;
     }
     

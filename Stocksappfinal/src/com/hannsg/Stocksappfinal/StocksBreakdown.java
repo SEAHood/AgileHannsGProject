@@ -1,21 +1,21 @@
-package com.example.my.first.app;
+package com.hannsg.Stocksappfinal;
 
-import com.example.my.first.app.R;
+import com.hannsg.Stocksappfinal.R;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class StocksBreakdown extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
                 
-        com.example.test.StockGatherer myActivity = new com.example.test.StockGatherer();
-        myActivity.getShares();
+        com.hannsg.Stocksappfinal.StocksBreakdown myActivity = new com.hannsg.Stocksappfinal.StocksBreakdown();
+        //myActivity.getShares();
         
         //String[] shares = myActivity.showShares();
         //displayAll(shares);
