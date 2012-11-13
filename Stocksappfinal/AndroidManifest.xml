@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StocksBreakdown" >
+        <activity android:name=".StocksBreakdown" android:label="Stocks breakdown">
         </activity>
         <activity
             android:name=".Portfolio"
