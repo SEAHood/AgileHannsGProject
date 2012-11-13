@@ -1,0 +1,66 @@
+Function : How much set of shares that worth in total 
+* Control structure -  
+   
+		
+
+Function 2 - Estimate how much portfolio is worth in total
+
+  List<int> listOnAmount ; 
+  double result ; 
+  List<String> listOnIndex ;
+  List<Double> listOnResult ; 	   
+			    
+  HashMap <String, double> setOfStockList	
+  
+  Object previousFridayData ; // capture all the things on the last friday 
+ 
+* Control structure 
+
+   Statement coverage : In case of amount on stocks X is greater than 0, then calculate the result 
+
+ if(ammount > 0 && setOfStockList.containsKey(indexList.get(0)) && setOfShareList.get(indexList.get(0))) > 0 )
+
+THEN
+	resultOnX = amountOnX* setOfStockList.get(indexList.get(0))) ; 
+
+  Statement : Calculate the total worth of the whole portfolio    
+  
+	double total = resultOnX + resultOnY + resultOnA + resultOnB ; 	
+
+  
+
+* Basis path : 
+
+Calculate all the result of particular set of stocks 
+		
+		|
+		|
+		|
+		v 
+
+Display results of all set of stocks in separate lines
+		|
+		|
+		|
+		|
+		v
+Calculate total worth of the portfolio 
+		|
+		|
+		|
+		v
+
+Display total worth of portfolio	
+	
+
+* Data flow 
+ 
+  Data flow graph 
+	
+  
+
+  Data flow anomalies graph 
+	
+
+* JUnit proposal : 
+
