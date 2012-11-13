@@ -1,4 +1,4 @@
-package com.example.test;
+package com.hannsg.Stocksappfinal;
 
 import java.io.BufferedInputStream;
 import java.io.File;

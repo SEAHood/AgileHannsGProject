@@ -1,8 +1,13 @@
-package com.example.test;
+package com.hannsg.Stocksappfinal;
 
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+
+import com.hannsg.Stocksappfinal.R;
+import com.hannsg.Stocksappfinal.R.id;
+import com.hannsg.Stocksappfinal.R.layout;
+import com.hannsg.Stocksappfinal.R.menu;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
