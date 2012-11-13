@@ -1,52 +1,18 @@
 Function : How much set of shares that worth in total 
 
-Unit 1 : Calculate how much set of shares that worth in total 
+Unit 1 : Display set of shares that worth in total 
 
-* Input           : 
-	Available number of shares in particular brands 
-	Profit per single type of share 
-
-* Expected output :
- 
- Profit_share_type_x = number_of_share_x * profit_per_single_share_x
-	
- 
-* Boundary value : 
-	invalid values : <  0.00
-	valid values   : >= 0.00
-
-* JUnit proposal : 
-	@Test
-	profitPerShareTest (number of shares,profit per single share)
-	@Test	
-	totalProfit (profit_share_type ... ) 
-
-* Error Guessing :
-	- The calculation yield a wrong value when prices is out up date 
-	- Number of shares < 0 
-	- Profit_per_single_share < 0 
-
-
-Unit 2 : Update prices 
-
-* Input    : Live Index 
-   	     Live Share
+* Input    : String index ; // index 
+   	     double value ; // buy value of index 
 
 * Expected : Index not null
-      	     Value (Buy and Sell) >= 0 
-	     Point of decrement or increment 
-		
-	      e.g decrement :  -0.01 ; -0.1
-		  increment : +0.3     	        (%)
-	  ->  thus,
-updated_value= current_value + (current_value * decrement_point/increment)
-			
+      	     Value (Buy value) > 0			
 
-	   <Present as the table>
+   	 -->  Present as the table
 
 * Boundary value : 
 	invalid values : index = null 
-			 Buy <= 0 || Sell <= 0
+			 value <= 0 
 						 			 
 	valid values : index specified (e.g Groupon ; UK100 ; Oil)
 		       value > 0     (e.g: Buy: 2.80 GBP)
@@ -55,22 +21,43 @@ updated_value= current_value + (current_value * decrement_point/increment)
 * JUnit proposal :
 
 	@Test
-	indexTest()
-	@Test
-	valueTest()
+	displaySharesTest();
+	
+* Error Guessing : 
+	No data (index is null or value is null or both)
+
+Unit 2 : Update prices every 15 minutes 
+
+* Input    : Live Index 
+   	     Live Share
+
+* Expected : Index not null eg. Yahoo , Oil 
+      	     Value >= 0 
+	     Present it on the table 	     
+
+* Boundary value : 
+	invalid values : index = null 
+			 Buy <= 0 
+						 			 
+	valid values : index specified (e.g Groupon ; UK100 ; Oil)
+		       value > 0     (e.g: Buy: 2.80 GBP)
+
+
+* JUnit proposal :
+
 	@BeforeClass
 	void connect()
+	@Test
+	displayShareTest();
 	@Test timeout = 15 minutes
 	update()
 	
 * Error Guessing : 
-	- Stopped internet connection on time when needing to update prices, thus missing the update function
+	-Unternet connection is interupted in time of when needing to update prices, thus missing the update function
 
 	- No Internet connection 
 	
 	- Index is null/ no longer existing 
-
-	- 
 
 Unit 3 : Error checking 
 	
@@ -98,21 +85,49 @@ Unit 3 : Error checking
 
 Function 2 - Estimate how much portfolio is worth in total
 
-Unit 1 : Display total of all stocks 
-* Input    : all values numbers of all stocks (from internet ) 
-* Expected : all values numbers of all stocks (with comma if it's >= 1000) 
+Unit 1 : Calculate how much set of stock that worth in total 
+
+* Input           : 
+	Available number of shares in particular brands 
+	Profit per single type of share 
+
+* Expected output :
+ 
+ Profit_share_type_x = number_of_share_x * profit_per_single_share_x
+	
+ 
+* Boundary value : 
+	invalid values : <  0.00
+	valid values   : >= 0.00
+
+* JUnit proposal : 
+	@Test
+	profitPerShareTest (number of shares,profit per single share)
+	@Test	
+	totalProfit (profit_share_type ... ) 
+
+* Error Guessing :
+	- The calculation yield a wrong value when prices is out up date 
+	- Number of shares < 0 
+	- Profit_per_single_share < 0 
+
+
+
+Unit 2 : Display the portfolio that have already been calculated
+* Input    : all set of all stocks (from internet ) 
+* Expected : all set of all stocks (value will be shown with comma to separate thousands if it's equal or greater than 1000 and so on) 
 	     
 * Boundary value : 
 	invalid values : any values numbers of stocks< 0 ; any indexes which are null.
 	valid values : any values numbers of stocks >= 0 
-
+		   	
 * JUnit proposal :
 		@Test
 		portfolioWorthTest();
 				
 
 Unit 2 : Total must be in pounds 
-* Input    : all worth total numbers 
+* Input    : all worth total numbers (that might be in US dolars, Euros, Yen etc.)
 * Expected : all worth total numbers (in pounds - with current trade ratio according to yahoo finance )
 	     
 * Boundary value : 
@@ -168,3 +183,5 @@ Unit 4 : Compare from previous friday
 		portfolioWorthTest();
 		@Test
 		capturePortfolioTest();
+
+Function : Design interface 

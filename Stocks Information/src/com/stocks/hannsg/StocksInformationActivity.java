@@ -33,7 +33,7 @@ public class StocksInformationActivity extends Activity {
             		 *CHANGE THIS CODE FROM "NEXTACTIVITY" TO CALL THE PORTFOLIO TOTAL VALUE ACTIVITY*
             		 *********************************************************************************/
 
-            		/*Intent myIntent = new Intent(StocksInformationActivity.this, NextActivity.class);
+            		/*Intent myIntent = new Intent(StocksInformationActivity.this, com.example.my.first.app.MainActivity.class);
             		StocksInformationActivity.this.startActivity(myIntent);*/
             		
             	} else if (position == 1) {
