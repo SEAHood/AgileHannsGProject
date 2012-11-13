@@ -73,8 +73,8 @@ public class MainActivity extends Activity {
     }
     
     
-    //private void showShares()
-    public String[] showShares()
+    private void showShares()
+    //public String[] showShares()
     {
     	StringBuilder text = new StringBuilder();
     	TextView output = new TextView(this);
@@ -149,30 +149,33 @@ public class MainActivity extends Activity {
     		
     		euanStocks[5] = addCommas(totalWorth);
     		
-    		// sam's expression which i don't understand the need for =]
-    		// Math.round(totalWorth*100.0)/100.0)
-    		
     		//text.append('\n');
     		//text.append("Your total value is: £" + addCommas(totalWorth));
     		
-    		return euanStocks;
+    		text.append("BP: £"+euanStocks[0]+'\n'+"HSBA: £"+euanStocks[1]+'\n'+"EXPN: £"+euanStocks[2]+'\n'+"MKS: £"+euanStocks[3]+'\n'+"SN: £"+euanStocks[4]+'\n'+"TOTAL: £"+euanStocks[5]);
+    		
+    		//return euanStocks;
     	}
     	catch (IOException ex)
     	{
     		System.out.println("Error in showShares method.");
-    		return null;
+    		//return null;
     	}
     	
-    	//output.setText(text);
+    	output.setText(text);
     }
     
     
     private String addCommas(float val)
     {
+    	/*
+    	 * Adds commas between sets of 3 digits in
+    	 * values greater than £1000
+    	 * returns formatted value as a string.
+    	 * (horrible hack, but whatever)
+    	 */
     	String result = "";
-    	
     	result = String.format("%,.2f", val);
-        	
     	return result;
     }
     

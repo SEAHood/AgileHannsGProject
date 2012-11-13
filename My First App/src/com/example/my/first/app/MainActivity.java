@@ -17,8 +17,8 @@ public class MainActivity extends Activity {
         com.example.test.MainActivity myActivity = new com.example.test.MainActivity();
         myActivity.getShares();
         
-        String[] shares = myActivity.showShares();
-        displayAll(shares);
+        //String[] shares = myActivity.showShares();
+        //displayAll(shares);
     }
     
     public void displayAll(String[] shares) {
