@@ -33,7 +33,7 @@ public class MainMenu extends Activity {
             		 *CHANGE THIS CODE FROM "NEXTACTIVITY" TO CALL THE PORTFOLIO TOTAL VALUE ACTIVITY*
             		 *********************************************************************************/
 
-            		Intent myIntent = new Intent(MainMenu.this, com.hannsg.Stocksappfinal.StocksBreakdown.class);
+            		Intent myIntent = new Intent(MainMenu.this, com.hannsg.Stocksappfinal.Portfolio.class);
             		MainMenu.this.startActivity(myIntent);
             		
             	} else if (position == 1) {
@@ -42,8 +42,8 @@ public class MainMenu extends Activity {
             		 *CHANGE THIS CODE FROM "NEXTACTIVITY" TO CALL THE STOCKS BREAKDOWN ACTIVITY*
             		 ****************************************************************************/
 
-            		/*Intent myIntent = new Intent(StocksInformationActivity.this, NextActivity.class);
-            		StocksInformationActivity.this.startActivity(myIntent);*/
+            		Intent myIntent = new Intent(MainMenu.this, com.hannsg.Stocksappfinal.StocksBreakdown.class);
+            		MainMenu.this.startActivity(myIntent);
             		
             	}
             }
