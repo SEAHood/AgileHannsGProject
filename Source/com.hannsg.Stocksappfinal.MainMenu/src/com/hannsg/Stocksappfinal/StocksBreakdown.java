@@ -71,7 +71,7 @@ public class StocksBreakdown extends Activity {
 	    	}
 	    	catch (Exception ex)
 	    	{
-	    		t.setText("Loading...");
+	    		t.setText("Loading..");
 	    	}
     	}
     }

@@ -3,6 +3,7 @@ package com.hannsg.Stocksappfinal;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Calendar;
 
 import com.hannsg.Stocksappfinal.R;
 import com.hannsg.Stocksappfinal.R.id;
@@ -26,7 +27,7 @@ public class StockGatherer extends Activity {
 	}
 
 	// declare the dialog as a member field of your activity
-	ProgressDialog mProgressDialog;
+	//ProgressDialog mProgressDialog;
 	
 	static int BP = 192;
 	static int HSBA = 343;
@@ -70,6 +71,33 @@ public class StockGatherer extends Activity {
     	DownloadFile downloadFile = new DownloadFile(this);
     	downloadFile.execute("http://download.finance.yahoo.com/d/quotes.csv?s=BP.L,HSBA.L,EXPN.L,MKS.L,SN.L&f=sl1&e=.csv");
     	
+    	
+    	
+    }
+    
+    
+    //CODES
+    //BP.L, HSBA.L, EXPN.L, MKS.L, SN.L
+    public void getPreviousFriday(String code)
+    {
+    	Calendar c = Calendar.getInstance();
+    	
+    	while (c.get(Calendar.DAY_OF_WEEK) != Calendar.FRIDAY)
+    	{
+    		c.set(c.DAY_OF_MONTH, c.DAY_OF_MONTH - 1);
+    	}
+    	
+    	int d = c.get(Calendar.DAY_OF_MONTH);
+    	int m = c.get(Calendar.MONTH);
+    	int y = c.get(Calendar.YEAR);
+    	
+    	DownloadFile downloadFile = new DownloadFile(this);
+    	String url = "http://ichart.yahoo.com/table.csv?s=" + code;
+    	url += "&a=" + d-- + "&b=" + m + "&c=" + y;
+    	url += "&d=" + d + "&e=" + m + "&f=" + y;
+    	url += "&g=w&ignore=.csv";
+    	
+    	downloadFile.execute(url);
     }
    
     public void updateScreen(String success)
@@ -89,15 +117,13 @@ public class StockGatherer extends Activity {
     	BufferedReader br;
     	
     	String path = Environment.getExternalStorageDirectory().getPath();
-    	//System.out.println("PATH: " + path);
-    	//float total = 0.0f;
+    	
     	try 
     	{
     		br = new BufferedReader(new FileReader(path + "/quotes.csv"));
     		
     		String line;
     		String[] stocks = new String[5];
-    		String[] euanStocks = new String[5];
     		
     		int line_counter = 0;
     		
@@ -112,9 +138,10 @@ public class StockGatherer extends Activity {
     			
     			//text.append(csv_read[0]);
     			
+    			
     			if (csv_read[1] == "N/A")
     			{
-    				euanStocks[line_counter] = "ND";
+    				stocks[line_counter] = "ND";
     				
     			}
     			else
@@ -145,7 +172,7 @@ public class StockGatherer extends Activity {
 	    			}
 	    			catch (Exception ex)
 	    			{
-	    				euanStocks[line_counter] = "ER";
+	    				stocks[line_counter] = "ER";
 	    			}
 	    			
 	    			// convert to £
@@ -154,12 +181,19 @@ public class StockGatherer extends Activity {
 	    			//text.append(" - Total value: £" + addCommas(stockWorth));
 	    			
 	    			// add value of current stock to array of totals
-	    			euanStocks[line_counter] = addCommas(stockWorth);
-	    			stocks[line_counter] = csv_read[1];
+	    			stocks[line_counter] = addCommas(stockWorth);
+	    			
 	    			    			
 	    			//text.append('\n');
 	    			line_counter++;
     			}
+    		}
+    		
+    		if (stocks[0] == null)
+    		{
+    			stocks[0] = "CE";
+    			br.close();
+    			return stocks;
     		}
     		
     		//Get total worth in pence
@@ -168,15 +202,15 @@ public class StockGatherer extends Activity {
     		//Convert to £
     		totalWorth /= 100;
     		
-    		//for (int i = 0; i < euanStocks.length; i++)
-    		//	euanStocks[i] = addCommas(totalWorth);
+    		//for (int i = 0; i < stocks.length; i++)
+    		//	stocks[i] = addCommas(totalWorth);
     		
     		//text.append('\n');
     		//text.append("Your total value is: £" + addCommas(totalWorth));
     		
-    		//text.append("BP: £"+euanStocks[0]+'\n'+"HSBA: £"+euanStocks[1]+'\n'+"EXPN: £"+euanStocks[2]+'\n'+"MKS: £"+euanStocks[3]+'\n'+"SN: £"+euanStocks[4]+'\n'+"TOTAL: £"+euanStocks[5]);
+    		//text.append("BP: £"+stocks[0]+'\n'+"HSBA: £"+stocks[1]+'\n'+"EXPN: £"+stocks[2]+'\n'+"MKS: £"+stocks[3]+'\n'+"SN: £"+stocks[4]+'\n'+"TOTAL: £"+stocks[5]);
     		br.close();
-    		return euanStocks;
+    		return stocks;
     	}
     	catch (Exception ex)
     	{
