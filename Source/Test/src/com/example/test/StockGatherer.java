@@ -14,9 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class StockGatherer extends Activity {
 	
-	public MainActivity() {
+	public StockGatherer() {
 		
 	}
 
@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
      // instantiate it within the onCreate method
-    	mProgressDialog = new ProgressDialog(MainActivity.this);
+    	mProgressDialog = new ProgressDialog(StockGatherer.this);
     	mProgressDialog.setMessage("A message");
     	mProgressDialog.setIndeterminate(false);
     	mProgressDialog.setMax(100);
