@@ -1,6 +1,38 @@
 Function : How much set of shares that worth in total 
+
+String line // get the data from the txt data file externally
+
 * Control structure -  
-   
+ 
+   Statement coverage : if(line != null) print line ;
+
+* Basis path : 
+
+Get the live data from the internet 
+		
+		|
+		|
+		|
+		v 
+
+Render it the line variable 
+		|
+		|
+		|
+		|
+		v
+Display the line to the interface  
+	
+	
+
+* Data flow 
+ 
+  Data flow graph 
+	
+  
+
+  Data flow anomalies graph 
+	
 		
 
 Function 2 - Estimate how much portfolio is worth in total
