@@ -3,6 +3,7 @@ package com.hannsg.Stocksappfinal;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Calendar;
 
 import com.hannsg.Stocksappfinal.R;
 import com.hannsg.Stocksappfinal.R.id;
@@ -26,7 +27,7 @@ public class StockGatherer extends Activity {
 	}
 
 	// declare the dialog as a member field of your activity
-	ProgressDialog mProgressDialog;
+	//ProgressDialog mProgressDialog;
 	
 	static int BP = 192;
 	static int HSBA = 343;
@@ -37,7 +38,7 @@ public class StockGatherer extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        /*setContentView(R.layout.activity_main);
         
      // instantiate it within the onCreate method
     	mProgressDialog = new ProgressDialog(StockGatherer.this);
@@ -53,12 +54,12 @@ public class StockGatherer extends Activity {
 				// TODO Auto-generated method stub
 				getShares();
 			}
-		});
+		});*/
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+        //getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
     
@@ -70,6 +71,33 @@ public class StockGatherer extends Activity {
     	DownloadFile downloadFile = new DownloadFile(this);
     	downloadFile.execute("http://download.finance.yahoo.com/d/quotes.csv?s=BP.L,HSBA.L,EXPN.L,MKS.L,SN.L&f=sl1&e=.csv");
     	
+    	
+    	
+    }
+    
+    
+    //CODES
+    //BP.L, HSBA.L, EXPN.L, MKS.L, SN.L
+    public void getPreviousFriday(String code)
+    {
+    	Calendar c = Calendar.getInstance();
+    	
+    	while (c.get(Calendar.DAY_OF_WEEK) != Calendar.FRIDAY)
+    	{
+    		c.set(c.DAY_OF_MONTH, c.DAY_OF_MONTH - 1);
+    	}
+    	
+    	int d = c.get(Calendar.DAY_OF_MONTH);
+    	int m = c.get(Calendar.MONTH);
+    	int y = c.get(Calendar.YEAR);
+    	
+    	DownloadFile downloadFile = new DownloadFile(this);
+    	String url = "http://ichart.yahoo.com/table.csv?s=" + code;
+    	url += "&a=" + d-- + "&b=" + m + "&c=" + y;
+    	url += "&d=" + d + "&e=" + m + "&f=" + y;
+    	url += "&g=w&ignore=.csv";
+    	
+    	downloadFile.execute(url);
     }
    
     public void updateScreen(String success)
@@ -78,26 +106,24 @@ public class StockGatherer extends Activity {
     }
     
     
-    private void showShares()
+    public String[] showShares()
     //public String[] showShares()
     {
     	StringBuilder text = new StringBuilder();
-    	TextView output = new TextView(this);
+    	//TextView output = new TextView(this);
     	
-    	output = (TextView)findViewById(R.id.textView1);
+    	//output = (TextView)findViewById(R.id.textView1);
     	
     	BufferedReader br;
     	
     	String path = Environment.getExternalStorageDirectory().getPath();
-    	System.out.println("PATH: " + path);
-    	//float total = 0.0f;
+    	
     	try 
     	{
     		br = new BufferedReader(new FileReader(path + "/quotes.csv"));
     		
     		String line;
     		String[] stocks = new String[5];
-    		String[] euanStocks = new String[6];
     		
     		int line_counter = 0;
     		
@@ -111,39 +137,63 @@ public class StockGatherer extends Activity {
     			String[] csv_read = line.split(delims);
     			
     			//text.append(csv_read[0]);
-    			float stockWorth = 0.0f;
-    			switch(line_counter)
+    			
+    			
+    			if (csv_read[1] == "N/A")
     			{
-	    			case 0:
-	    				stockWorth = Float.parseFloat(csv_read[1]) * BP;
-	    				break;
-	    			case 1:
-	    				stockWorth = Float.parseFloat(csv_read[1]) * HSBA;
-	    				break;
-	    			case 2:
-	    				stockWorth = Float.parseFloat(csv_read[1]) * EXPN;
-	    				break;
-	    			case 3:
-	    				stockWorth = Float.parseFloat(csv_read[1]) * MKS;
-	    				break;
-	    			case 4:
-	    				stockWorth = Float.parseFloat(csv_read[1]) * SN;
-	    				break;
-    				default:
-    					break;
+    				stocks[line_counter] = "ND";
+    				
     			}
-    			
-    			// convert to £
-    			stockWorth /= 100;
-    			
-    			//text.append(" - Total value: £" + addCommas(stockWorth));
-    			
-    			// add value of current stock to array of totals
-    			euanStocks[line_counter] = addCommas(stockWorth);
-    			stocks[line_counter] = csv_read[1];
-    			    			
-    			//text.append('\n');
-    			line_counter++;
+    			else
+    			{
+	    			float stockWorth = 0.0f;
+	    			try
+	    			{
+		    			switch(line_counter)
+		    			{
+			    			case 0:
+			    				stockWorth = Float.parseFloat(csv_read[1]) * BP;
+			    				break;
+			    			case 1:
+			    				stockWorth = Float.parseFloat(csv_read[1]) * HSBA;
+			    				break;
+			    			case 2:
+			    				stockWorth = Float.parseFloat(csv_read[1]) * EXPN;
+			    				break;
+			    			case 3:
+			    				stockWorth = Float.parseFloat(csv_read[1]) * MKS;
+			    				break;
+			    			case 4:
+			    				stockWorth = Float.parseFloat(csv_read[1]) * SN;
+			    				break;
+		    				default:
+		    					break;
+		    			}
+	    			}
+	    			catch (Exception ex)
+	    			{
+	    				stocks[line_counter] = "ER";
+	    			}
+	    			
+	    			// convert to £
+	    			stockWorth /= 100;
+	    			
+	    			//text.append(" - Total value: £" + addCommas(stockWorth));
+	    			
+	    			// add value of current stock to array of totals
+	    			stocks[line_counter] = addCommas(stockWorth);
+	    			
+	    			    			
+	    			//text.append('\n');
+	    			line_counter++;
+    			}
+    		}
+    		
+    		if (stocks[0] == null)
+    		{
+    			stocks[0] = "CE";
+    			br.close();
+    			return stocks;
     		}
     		
     		//Get total worth in pence
@@ -152,22 +202,23 @@ public class StockGatherer extends Activity {
     		//Convert to £
     		totalWorth /= 100;
     		
-    		euanStocks[5] = addCommas(totalWorth);
+    		//for (int i = 0; i < stocks.length; i++)
+    		//	stocks[i] = addCommas(totalWorth);
     		
     		//text.append('\n');
     		//text.append("Your total value is: £" + addCommas(totalWorth));
     		
-    		text.append("BP: £"+euanStocks[0]+'\n'+"HSBA: £"+euanStocks[1]+'\n'+"EXPN: £"+euanStocks[2]+'\n'+"MKS: £"+euanStocks[3]+'\n'+"SN: £"+euanStocks[4]+'\n'+"TOTAL: £"+euanStocks[5]);
-    		
-    		//return euanStocks;
+    		//text.append("BP: £"+stocks[0]+'\n'+"HSBA: £"+stocks[1]+'\n'+"EXPN: £"+stocks[2]+'\n'+"MKS: £"+stocks[3]+'\n'+"SN: £"+stocks[4]+'\n'+"TOTAL: £"+stocks[5]);
+    		br.close();
+    		return stocks;
     	}
-    	catch (IOException ex)
+    	catch (Exception ex)
     	{
-    		System.out.println("Error in showShares method.");
-    		//return null;
+    		System.out.println("Error in showShares method. MSG: " + ex.getMessage());
+    		return null;
     	}
     	
-    	output.setText(text);
+    	//output.setText(text);
     }
     
     
