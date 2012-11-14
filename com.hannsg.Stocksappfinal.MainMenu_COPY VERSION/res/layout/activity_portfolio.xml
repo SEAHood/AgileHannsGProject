@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:orientation="vertical" >
+
+
+
+    <TextView
+        android:id="@+id/last_update"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#080808"
+        android:gravity="center_vertical|center_horizontal"
+        android:height="35dp"
+        android:text="Last Updated: 01/01/2012"
+        android:textColor="#C0C0C0"
+        android:textSize="14dp"
+        android:textStyle="italic"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Total Portfolio Value:"
+        android:textSize="16dp"
+        android:typeface="serif" />
+
+    <TextView
+        android:id="@+id/val_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="£15,000.XX"
+        android:textSize="42dp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+    
+    <TextView
+        android:id="@+id/error_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="ERROR: Could not retrieve BP"
+		android:textColor="#FF0000"
+        android:textSize="12dp"
+        android:typeface="serif" />
+    
+    <TextView
+        android:id="@+id/error_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="ERROR: Could not retrieve HSBA"
+		android:textColor="#FF0000"
+        android:textSize="12dp"
+        android:typeface="serif" />
+    
+    <TextView
+        android:id="@+id/error_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="ERROR: Could not retrieve EXPN"
+		android:textColor="#FF0000"
+        android:textSize="12dp"
+        android:typeface="serif" />
+    
+    <TextView
+        android:id="@+id/error_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="ERROR: Could not retrieve MKS"
+		android:textColor="#FF0000"
+        android:textSize="12dp"
+        android:typeface="serif" />
+    
+    <TextView
+        android:id="@+id/error_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="ERROR: Could not retrieve SN "
+		android:textColor="#FF0000"
+        android:textSize="12dp"
+        android:typeface="serif" />
+
+</LinearLayout>
