@@ -1,9 +1,9 @@
 <resources>
 
-    <string name="app_name">Stocksappfinal</string>
+    <string name="app_name">Stocks App</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">Portfolio</string>
-    <string name="title_activity_portfolio">Portfolio</string>
+    <string name="title_activity_main">Stocks App</string>
+    <string name="title_activity_portfolio">View Portfolio</string>
 
 </resources>
