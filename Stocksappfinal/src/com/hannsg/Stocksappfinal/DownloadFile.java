@@ -23,7 +23,6 @@ public class DownloadFile extends AsyncTask<String, Integer, String> {
 		activity = myMain;
 	}
 
-
 @Override
 protected String doInBackground(String... sUrl) {
 	   String success;
